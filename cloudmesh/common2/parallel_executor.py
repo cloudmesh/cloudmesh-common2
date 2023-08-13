@@ -14,6 +14,7 @@ import yaml
 import concurrent.futures
 import logging
 from docopt import docopt
+import json
 
 class ParallelExecutor:
     def __init__(self):

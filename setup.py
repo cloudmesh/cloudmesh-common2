@@ -18,12 +18,13 @@
 from setuptools import find_packages, setup
 import io
 
+
 def readfile(filename):
     with io.open(filename, encoding="utf-8") as stream:
         return stream.read().split()
 
 
-#requiers = readfile ('requirements.txt')
+# requiers = readfile ('requirements.txt')
 #
 # add minimum requirements here
 #
@@ -34,6 +35,27 @@ cloudmesh-inventory
 cloudmesh-configuration
 """.split("\n")
 
+# just an example
+extras = {
+    'collab': ['paramiko',
+               'google-colab',
+               'nbformat'],
+    'azure': ['azure'],
+    'google': ['google-auth',
+               'google-auth-oauthlib',
+               'google-auth-httplib2',
+               'google-api-python-client',
+               'PyYAML'],
+    'openstack': ['openstack'],
+    'aws': ['boto3'],
+    'ssh': ['paramiko'],
+    'duo': ['duo_universal']
+}
+
+all_dependencies = [dependency for dependencies in extras.values() for dependency in dependencies]
+
+extras['all'] = all_dependencies
+
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
 
 version = readfile("VERSION")[0].strip()
@@ -41,14 +63,11 @@ version = readfile("VERSION")[0].strip()
 with open('README.md') as f:
     long_description = f.read()
 
-
-
 NAME = "cloudmesh-common2"
 DESCRIPTION = ("A number of libraries that make development of cyberinfrastructure easier")
 AUTHOR = "Gregor von Laszewski"
 AUTHOR_EMAIL = "laszewski@gmail.com"
 URL = "https://github.com/cloudmesh/cloudmesh-common2"
-
 
 setup(
     name=NAME,
@@ -71,8 +90,12 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     install_requires=requiers,
+    extras_require=extras,
     tests_require=[
         "flake8",
         "coverage",

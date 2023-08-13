@@ -1,0 +1,52 @@
+google:
+  name: Google
+  kind: google
+  client_id: YOUR_GOOGLE_CLIENT_ID
+  client_secret: YOUR_GOOGLE_CLIENT_SECRET
+  redirect_uris:
+    - urn:ietf:wg:oauth:2.0:oob
+    - http://localhost
+
+azure:
+  name: Azure
+  kind: azure
+  subscription_id: YOUR_AZURE_SUBSCRIPTION_ID
+  client_id: YOUR_AZURE_CLIENT_ID
+  client_secret: YOUR_AZURE_CLIENT_SECRET
+  tenant_id: YOUR_AZURE_TENANT_ID
+
+openstack:
+  name: OpenStack
+  kind: openstack
+  username: YOUR_OPENSTACK_USERNAME
+  password: YOUR_OPENSTACK_PASSWORD
+  project_name: YOUR_OPENSTACK_PROJECT_NAME
+  auth_url: YOUR_OPENSTACK_AUTH_URL
+
+aws:
+  name: AWS
+  kind: aws
+  access_key: YOUR_AWS_ACCESS_KEY
+  secret_key: YOUR_AWS_SECRET_KEY
+  region: YOUR_AWS_REGION
+
+laptop:
+  name: Laptop
+  kind: ssh
+  username: YOUR_SSH_USERNAME
+  private_key_path: /path/to/your/private_key.pem
+  vpn: vpn_uva
+
+vpn_uva:
+  name: vpn_uva
+  kind: vpn
+  server: vpn.example.com
+  username: user
+  password: password # should not be in here
+
+vpn_ufl:
+  name: vpn_ufl
+  kind: vpn
+  server: vpn.example.com
+  username: user
+  password: password # should not be in here
